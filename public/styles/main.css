@@ -1,0 +1,50 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f4e2d8;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2em;
+  color: #ff6347;
+}
+
+input[type="url"],
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ff6347;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ff6347;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #e5533d;
+}
+
+.hidden {
+  display: none;
+}

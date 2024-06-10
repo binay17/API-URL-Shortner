@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro URL Shortener</title>
+    <link rel="stylesheet" href="/API URL Shortner/public/styles/main.css" />
+  </head>
+
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+      background-color: #f4e2d8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #ff6347;
+    }
+
+    input[type="url"],
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ff6347;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff6347;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #e5533d;
+    }
+
+    /* .hidden {
+      display: none;
+    } */
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Retro URL Shortener</h1>
+      <form id="urlForm" action="/" method="POST">
+        <input
+          type="url"
+          name="longUrl"
+          id="longUrl"
+          placeholder="Enter long URL"
+          required
+        />
+        <button type="submit">Shorten URL</button>
+      </form>
+
+      <% if (shortUrl) { %>
+      <div id="result">
+        <input type="text" id="shortUrl" value="<%= shortUrl %>" readonly />
+        <button id="copyButton">Copy</button>
+      </div>
+      <% } %>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const copyButton = document.getElementById("copyButton");
+        if (copyButton) {
+          copyButton.addEventListener("click", function () {
+            const shortUrlInput = document.getElementById("shortUrl");
+            navigator.clipboard
+              .writeText(shortUrlInput.value)
+              .then(() => {
+                alert("Copied to clipboard!");
+              })
+              .catch((err) => {
+                console.error("Failed to copy: ", err);
+              });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
